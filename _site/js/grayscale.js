@@ -33,13 +33,15 @@ $('.navbar-collapse ul li a').click(function() {
 // otherwise bootstrap will still highlight the link
 $("a").mouseup(function(){
     $(this).blur();
-})
+});
 
 // Google Maps Scripts
 // When the window has finished loading create our google map below
 google.maps.event.addDomListener(window, 'load', init);
 
 function init() {
+    var lat  = 40.767956;
+    var long = -111.846; // Warnock Engineering Building
     // Basic options for a simple Google Map
     // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
     var mapOptions = {
@@ -47,7 +49,7 @@ function init() {
         zoom: 15,
 
         // The latitude and longitude to center the map (always required)
-        center: new google.maps.LatLng(40.6700, -73.9400), // New York
+        center: new google.maps.LatLng(lat, long),
 
         // Disables the default Google Maps UI components
         disableDefaultUI: true,
@@ -175,7 +177,7 @@ function init() {
 
     // Custom Map Marker Icon - Customize the map-marker.png file to customize your icon
     var image = 'img/map-marker.png';
-    var myLatLng = new google.maps.LatLng(40.6700, -73.9400);
+    var myLatLng = new google.maps.LatLng(lat, long);
     var beachMarker = new google.maps.Marker({
         position: myLatLng,
         map: map,
